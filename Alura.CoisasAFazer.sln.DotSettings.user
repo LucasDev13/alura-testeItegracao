@@ -1,0 +1,11 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=25fe9b72_002D7697_002D4503_002Dbda0_002Dc7800733c8bd/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="DadaTarefasComInformacoesValidasDeveIncluirNoDB" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;xUnit::E94F9F7B-8FA6-48B0-BCCE-AEF70FF450D1::net5.0::Alura.CoisasAFazer.Teste.CadastraTarefaHandlerExecute.DadaTarefasComInformacoesValidasDeveIncluirNoDB&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=f2c1159a_002Dca82_002D475e_002D9b31_002Dd74b041b4b7a/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="DadaTarefasComInformacoesValidasDeveIncluirNoDB #2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;xUnit::E94F9F7B-8FA6-48B0-BCCE-AEF70FF450D1::net5.0::Alura.CoisasAFazer.Teste.CadastraTarefaHandlerExecute.DadaTarefasComInformacoesValidasDeveIncluirNoDB&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
