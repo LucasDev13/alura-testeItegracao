@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using Alura.CoisasAFazer.Core.Commands;
 using Alura.CoisasAFazer.Core.Models;
 using Alura.CoisasAFazer.Services.Handlers;
@@ -16,12 +17,17 @@ namespace Alura.CoisasAFazer.Teste
             
             //Arrange
             var comando = new CadastraTarefa("Estudar xUnit", new Categoria("Estudo"), new DateTime(2021, 11, 14));
+
+            var repo = new RepositorioFake();
             //handler -> tratador desse comando
-            var handler = new CadastraTarefaHandler();
+            var handler = new CadastraTarefaHandler(repo);
             //Act
             handler.Execute(comando); //SUT - CadastraTarefaHandlerExecute
 
             //Assert
+            var tarefa = repo.ObtemTarefas(t => t.Titulo == "Estudar xUnit").FirstOrDefault();
+            Assert.NotNull(tarefa);
+
         }
     }
 }
