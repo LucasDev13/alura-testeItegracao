@@ -129,3 +129,4 @@ C:\Users\Lucas - Developer C#\Documents\workerspace-dotnet\testes-integracao\tes
 C:\Users\Lucas - Developer C#\Documents\workerspace-dotnet\testes-integracao\tests\Alura.CoisasAFazer.Teste\obj\Debug\net5.0\ref\Alura.CoisasAFazer.Teste.dll
 C:\Users\Lucas - Developer C#\Documents\workerspace-dotnet\testes-integracao\tests\Alura.CoisasAFazer.Teste\obj\Debug\net5.0\Alura.CoisasAFazer.Teste.pdb
 C:\Users\Lucas - Developer C#\Documents\workerspace-dotnet\testes-integracao\tests\Alura.CoisasAFazer.Teste\obj\Debug\net5.0\Alura.CoisasAFazer.Teste.genruntimeconfig.cache
+C:\Users\Lucas - Developer C#\Documents\workerspace-dotnet\testes-integracao\tests\Alura.CoisasAFazer.Teste\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.InMemory.dll

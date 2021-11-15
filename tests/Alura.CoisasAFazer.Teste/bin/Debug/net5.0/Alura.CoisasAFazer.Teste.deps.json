@@ -10,6 +10,7 @@
         "dependencies": {
           "Alura.CoisasAFazer.Core": "1.0.0",
           "Alura.CoisasAFazer.Services": "1.0.0",
+          "Microsoft.EntityFrameworkCore.InMemory": "2.2.6",
           "Microsoft.NET.Test.Sdk": "16.9.4",
           "coverlet.collector": "3.0.2",
           "xunit": "2.4.1",
@@ -85,6 +86,17 @@
         }
       },
       "Microsoft.EntityFrameworkCore.Analyzers/2.2.6": {},
+      "Microsoft.EntityFrameworkCore.InMemory/2.2.6": {
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "2.2.6"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.EntityFrameworkCore.InMemory.dll": {
+            "assemblyVersion": "2.2.6.0",
+            "fileVersion": "2.2.6.19169"
+          }
+        }
+      },
       "Microsoft.EntityFrameworkCore.Relational/2.2.6": {
         "dependencies": {
           "Microsoft.EntityFrameworkCore": "2.2.6"
@@ -1478,6 +1490,13 @@
       "sha512": "sha512-BpNllkfZABCvMAaIL/pSLxTYYZQqiVesSG6xQpvelrlEfC0s9PS217Sq5Apn/zYW8ALtGoVEY12TblHrZ4SRRA==",
       "path": "microsoft.entityframeworkcore.analyzers/2.2.6",
       "hashPath": "microsoft.entityframeworkcore.analyzers.2.2.6.nupkg.sha512"
+    },
+    "Microsoft.EntityFrameworkCore.InMemory/2.2.6": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-PREu4MsAGz3NEheW4TX4e8Bl4l34OrA4R4KFyWb3r475QRS1/ul4vK1mUzWF/fEwJgx7n1h1tvNZW7I04sl5fw==",
+      "path": "microsoft.entityframeworkcore.inmemory/2.2.6",
+      "hashPath": "microsoft.entityframeworkcore.inmemory.2.2.6.nupkg.sha512"
     },
     "Microsoft.EntityFrameworkCore.Relational/2.2.6": {
       "type": "package",

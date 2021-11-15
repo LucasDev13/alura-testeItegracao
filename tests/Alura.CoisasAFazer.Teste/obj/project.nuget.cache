@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "2EgHOnrSyL7/zhlVEhZy1trhmOF73dugMK3LLxc61KPMVuOMPUAii2Bjz360iRmLRptWGIM+Ozi+661rIjhSFw==",
+  "dgSpecHash": "w321tp3NaXavImK+GWCbvVfzKHsgXBmhuxLo82/MW88yQo0bZtIaGn2lp/PFUG+IG2pKJxOyS/PAPGHMAwLJ1A==",
   "success": true,
   "projectFilePath": "C:\\Users\\Lucas - Developer C#\\Documents\\workerspace-dotnet\\testes-integracao\\tests\\Alura.CoisasAFazer.Teste\\Alura.CoisasAFazer.Teste.csproj",
   "expectedPackageFiles": [
@@ -11,6 +11,7 @@
     "C:\\Users\\Lucas - Developer C#\\.nuget\\packages\\microsoft.entityframeworkcore\\2.2.6\\microsoft.entityframeworkcore.2.2.6.nupkg.sha512",
     "C:\\Users\\Lucas - Developer C#\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\2.2.6\\microsoft.entityframeworkcore.abstractions.2.2.6.nupkg.sha512",
     "C:\\Users\\Lucas - Developer C#\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\2.2.6\\microsoft.entityframeworkcore.analyzers.2.2.6.nupkg.sha512",
+    "C:\\Users\\Lucas - Developer C#\\.nuget\\packages\\microsoft.entityframeworkcore.inmemory\\2.2.6\\microsoft.entityframeworkcore.inmemory.2.2.6.nupkg.sha512",
     "C:\\Users\\Lucas - Developer C#\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\2.2.6\\microsoft.entityframeworkcore.relational.2.2.6.nupkg.sha512",
     "C:\\Users\\Lucas - Developer C#\\.nuget\\packages\\microsoft.entityframeworkcore.sqlserver\\2.2.6\\microsoft.entityframeworkcore.sqlserver.2.2.6.nupkg.sha512",
     "C:\\Users\\Lucas - Developer C#\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\2.2.0\\microsoft.extensions.caching.abstractions.2.2.0.nupkg.sha512",
