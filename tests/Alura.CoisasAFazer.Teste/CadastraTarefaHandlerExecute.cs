@@ -27,6 +27,7 @@ namespace Alura.CoisasAFazer.Teste
             var repo = new RepositorioTarefa(context);
             //handler -> tratador desse comando
             var handler = new CadastraTarefaHandler(repo);
+
             //Act
             handler.Execute(comando); //SUT - CadastraTarefaHandlerExecute
 
