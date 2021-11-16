@@ -36,5 +36,26 @@ namespace Alura.CoisasAFazer.Teste
             Assert.NotNull(tarefa);
 
         }
+
+        [Fact]
+        public void QuandoExceptionForLancadaResultadoIsSuccessDeveSerFalse()
+        {
+            //Arrange
+            var comando = new CadastraTarefa("Estudar xUnit", new Categoria("Estudo"), new DateTime(2021, 11, 14));
+
+            var options = new DbContextOptionsBuilder<DbTarefasContext>()
+                .UseInMemoryDatabase("DbTarefasContext")
+                .Options;//padrão builder utilizado
+            var context = new DbTarefasContext(options);
+            var repo = new RepositorioTarefa(context);
+            //handler -> tratador desse comando
+            var handler = new CadastraTarefaHandler(repo);
+
+            //Act
+            CommandResult resultado = handler.Execute(comando);
+
+            //Assert
+            Assert.False(resultado.IsSuccess);
+        }
     }
 }
