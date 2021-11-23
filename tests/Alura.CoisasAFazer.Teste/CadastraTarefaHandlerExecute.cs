@@ -46,7 +46,7 @@ namespace Alura.CoisasAFazer.Teste
 
             var mock = new Mock<IRepositorioTarefas>();
 
-            mock.Setup(r => r.IncluirTarefas(It.IsAny<Tarefa[]>()))
+            mock.Setup(r => r.IncluirTarefas(It.IsAny<Tarefa[]>())) 
                 .Throws(new Exception("Houve um erro na inclusão de tarefas"));
             
             
