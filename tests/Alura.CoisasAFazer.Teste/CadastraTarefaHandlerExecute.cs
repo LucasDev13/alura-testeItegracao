@@ -41,7 +41,50 @@ namespace Alura.CoisasAFazer.Teste
 
         }
 
+        delegate void CapturaMensagemLog(LogLevel level, EventId eventId, object state,
+            Exception exception, Func<object, Exception, string> function);
+
         [Fact]
+        public void DadaTarefasComInformacoesValidasDeveLogar()
+        {
+            //Arrange
+            var comando = new CadastraTarefa("Estudar xUnit", new Categoria("Estudo"), new DateTime(2021, 11, 14));
+
+            var mockLogger = new Mock<ILogger<CadastraTarefaHandler>>();
+
+            LogLevel levelCapturado = LogLevel.Error;
+            string mensagemCapturada = string.Empty;
+
+            CapturaMensagemLog captura = (level, eventId, state, exception, func) =>
+            {
+                levelCapturado = level;
+                mensagemCapturada = func(state, exception);
+            };
+
+            mockLogger.Setup(l => l.Log(
+                    It.IsAny<LogLevel>(), //nível de log => LogError
+                    It.IsAny<EventId>(), //identificador do evento
+                    It.IsAny<object>(), //objeto que será logado
+                    It.IsAny<Exception>(), //exceção que será logada
+                    It.IsAny<Func<object, Exception, string>>()//função que converte objeto+exceção >> string
+                )).Callback(captura); 
+
+            var mock = new Mock<IRepositorioTarefas>();
+            
+            //handler -> tratador desse comando
+            var handler = new CadastraTarefaHandler(mock.Object, mockLogger.Object);
+
+            //Act
+            handler.Execute(comando); //SUT - CadastraTarefaHandlerExecute
+
+            //Assert
+            Assert.Equal(LogLevel.Debug, levelCapturado);
+            //Assert.Equal("Persistindo a tarefa...", mensagemCapturada);
+            Assert.Contains("Estudar xUnit", mensagemCapturada);
+
+        }
+
+            [Fact]
         public void QuandoExceptionForLancadaResultadoIsSuccessDeveSerFalse()
         {
             //Arrange
