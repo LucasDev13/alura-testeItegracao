@@ -71,6 +71,8 @@ namespace Alura.CoisasAFazer.Teste
         {
             //Arrange
             var mensagemEsperada = "Houve um erro na inclusão de tarefas";
+            var excecaoEsperada = new Exception(mensagemEsperada);
+
             var comando = new CadastraTarefa("Estudar xUnit", new Categoria("Estudo"), new DateTime(2021, 11, 14));
 
             var mockLogger = new Mock<ILogger<CadastraTarefaHandler>>();
@@ -78,10 +80,10 @@ namespace Alura.CoisasAFazer.Teste
             var mock = new Mock<IRepositorioTarefas>();
 
             mock.Setup(r => r.IncluirTarefas(It.IsAny<Tarefa[]>()))
-                .Throws(new Exception(mensagemEsperada));
+                .Throws(excecaoEsperada);
 
 
-            var repo = mock.Object;
+            var repo = mock.Object ;
 
             var handler = new CadastraTarefaHandler(repo, mockLogger.Object);
 
@@ -89,7 +91,15 @@ namespace Alura.CoisasAFazer.Teste
             CommandResult resultado = handler.Execute(comando);
 
             //Assert
-            mockLogger.Verify(l => l.LogError(mensagemEsperada), Times.Once());
+            mockLogger.Verify(l => 
+                l.Log(
+                    LogLevel.Error, //nível de log => LogError
+                    It.IsAny<EventId>(), //identificador do evento
+                    It.IsAny<object>(), //objeto que será logado
+                    excecaoEsperada, //exceção que será logada
+                    It.IsAny<Func<object, Exception, string>>()
+                ), //função que converte objeto+exceção >> string 
+                Times.Once()); //O método vai ser chamada uma única vez.
         }
     }
 }
