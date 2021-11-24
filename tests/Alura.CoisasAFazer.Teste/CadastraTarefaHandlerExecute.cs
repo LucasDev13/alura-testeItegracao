@@ -7,6 +7,7 @@ using Alura.CoisasAFazer.Services.Handlers;
 using Microsoft.EntityFrameworkCore;
 using Xunit;
 using Moq;
+using Microsoft.Extensions.Logging;
 
 namespace Alura.CoisasAFazer.Teste
 {
@@ -21,13 +22,15 @@ namespace Alura.CoisasAFazer.Teste
             //Arrange
             var comando = new CadastraTarefa("Estudar xUnit", new Categoria("Estudo"), new DateTime(2021, 11, 14));
 
+            var mock = new Mock<ILogger<CadastraTarefaHandler>>();
+
             var options = new DbContextOptionsBuilder<DbTarefasContext>()
                 .UseInMemoryDatabase("DbTarefasContext")
                 .Options;//padrão builder utilizado
             var context = new DbTarefasContext(options);
             var repo = new RepositorioTarefa(context);
             //handler -> tratador desse comando
-            var handler = new CadastraTarefaHandler(repo);
+            var handler = new CadastraTarefaHandler(repo, mock.Object);
 
             //Act
             handler.Execute(comando); //SUT - CadastraTarefaHandlerExecute
@@ -44,6 +47,8 @@ namespace Alura.CoisasAFazer.Teste
             //Arrange
             var comando = new CadastraTarefa("Estudar xUnit", new Categoria("Estudo"), new DateTime(2021, 11, 14));
 
+            var mockLogger = new Mock<ILogger<CadastraTarefaHandler>>();
+
             var mock = new Mock<IRepositorioTarefas>();
 
             mock.Setup(r => r.IncluirTarefas(It.IsAny<Tarefa[]>())) 
@@ -52,7 +57,7 @@ namespace Alura.CoisasAFazer.Teste
             
             var repo = mock.Object;
 
-            var handler = new CadastraTarefaHandler(repo);
+            var handler = new CadastraTarefaHandler(repo, mockLogger.Object);
 
             //Act
             CommandResult resultado = handler.Execute(comando);
@@ -65,23 +70,26 @@ namespace Alura.CoisasAFazer.Teste
         public void QuandoExceptionForLancadaDeveLoggarAMensagemDaExcecao()
         {
             //Arrange
+            var mensagemEsperada = "Houve um erro na inclusão de tarefas";
             var comando = new CadastraTarefa("Estudar xUnit", new Categoria("Estudo"), new DateTime(2021, 11, 14));
+
+            var mockLogger = new Mock<ILogger<CadastraTarefaHandler>>();
 
             var mock = new Mock<IRepositorioTarefas>();
 
             mock.Setup(r => r.IncluirTarefas(It.IsAny<Tarefa[]>()))
-                .Throws(new Exception("Houve um erro na inclusão de tarefas"));
+                .Throws(new Exception(mensagemEsperada));
 
 
             var repo = mock.Object;
 
-            var handler = new CadastraTarefaHandler(repo);
+            var handler = new CadastraTarefaHandler(repo, mockLogger.Object);
 
             //Act
-            CommandResult resultado = handler.Execute(comando);,
+            CommandResult resultado = handler.Execute(comando);
 
             //Assert
-
+            mockLogger.Verify(l => l.LogError(mensagemEsperada), Times.Once());
         }
     }
 }
